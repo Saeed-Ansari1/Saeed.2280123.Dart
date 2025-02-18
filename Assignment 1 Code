@@ -1,0 +1,24 @@
+void main() {
+  String text = """This is a really really really cool experiment really
+Cute little experiment
+Will it work maybe it will work do you think it will it will""";
+
+  
+  List<String> words = text.toLowerCase().split(RegExp(r'\s+'));
+
+  
+  Map<String, int> wordFrequency = {};
+
+ 
+  words.forEach((word) {
+    word = word.replaceAll(RegExp(r'[^a-z]'), ''); 
+    if (word.isNotEmpty) {
+      wordFrequency[word] = (wordFrequency[word] ?? 0) + 1;
+    }
+  });
+
+  
+  wordFrequency.forEach((word, count) {
+    print('$word: $count');
+  });
+}
